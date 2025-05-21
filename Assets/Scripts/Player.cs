@@ -1,0 +1,15 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+//PlayerController라던지 앞으로 만들 기능들을 담을 예정
+public class Player : MonoBehaviour
+{
+    [Header("플레이어 컨트롤러")]
+    public PlayerControler playerControler;
+
+    private void Awake()
+    {
+        CharacterManager.Instance.Player = this;
+        playerControler =GetComponent<PlayerControler>();
+    }
+}
