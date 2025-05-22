@@ -166,22 +166,6 @@ public class PlayerController : MonoBehaviour
         moveSpeed /= amount;
         Debug.Log("스피드 원래대로 복구됨!");
     }
-    public void StartCountdown()
-    {
-        StartCoroutine(CountdownCoroutine(10));
-    }
-    private IEnumerator CountdownCoroutine(int seconds)
-    {
-        int timeLeft = seconds;
-
-        while (timeLeft > 0)
-        {
-            Debug.Log("남은 시간: " + timeLeft + "초");
-            yield return new WaitForSeconds(1f);
-            timeLeft--;
-        }
-
-        Debug.Log("카운트다운 완료!");
-    }
+    
 }
 
