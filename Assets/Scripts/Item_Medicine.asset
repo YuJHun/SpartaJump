@@ -17,6 +17,10 @@ MonoBehaviour:
   itemType: 1
   itemIcon: {fileID: 21300000, guid: 500ea9ed2e5db9c4eb2d8db36c4f7b99, type: 3}
   dropPrefab: {fileID: 2180830465715856220, guid: c2bd8c10215f90d4889be31d78a3ae87, type: 3}
-  canStack: 0
+  canStack: 1
   maxStack: 10
-  consumbales: []
+  consumbales:
+  - type: 0
+    value: 50
+  - type: 1
+    value: 1

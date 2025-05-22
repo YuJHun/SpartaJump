@@ -23,6 +23,8 @@ public class Interaction : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Debug.Log("curInteractable: " + curInteractable);
+        Debug.Log("promptText: " + promptText);
         if (Time.time - lastCheckTime > checkRate)
         {
             lastCheckTime = Time.time;
@@ -55,6 +57,17 @@ public class Interaction : MonoBehaviour
 
     private void SetPromptText()
     {
+        if (promptText == null)
+        {
+            Debug.LogError("promptText가 연결되지 않았습니다!");
+            return;
+        }
+
+        if (curInteractable == null)
+        {
+            Debug.LogError("curInteractable이 null입니다!");
+            return;
+        }
         promptText.gameObject.SetActive(true);
         promptText.text = curInteractable.GetInteractPrompt();
     }

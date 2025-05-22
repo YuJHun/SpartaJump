@@ -58,14 +58,14 @@ public class PlayerController : MonoBehaviour
         Move();//움직임 함수 호출
     }
 
-    public void OnMove(InputAction.CallbackContext 현재상태)
+    public void OnMove(InputAction.CallbackContext context)
     {
-        if (현재상태.phase == InputActionPhase.Performed)//phase 분기점
+        if (context.phase == InputActionPhase.Performed)//phase 분기점
         {
-            nowMovementInput = 현재상태.ReadValue<Vector2>();//값을 읽어온다
+            nowMovementInput = context.ReadValue<Vector2>();//값을 읽어온다
 
         }
-        else if (현재상태.phase == InputActionPhase.Canceled)
+        else if (context.phase == InputActionPhase.Canceled)
         {
             nowMovementInput = Vector2.zero;//값을 초기화한다
         }

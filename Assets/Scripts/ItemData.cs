@@ -14,10 +14,12 @@ public enum itemType // 아이템 종류를 정의하는 열거형
 
 public enum ConsumableType // 소비 아이템 종류를 정의하는 열거형
 {
-    HealthPotion,
-    ManaPotion,
-    StaminaPotion,
-    BuffPotion
+    HP,
+    MP,
+    //HealthPotion,
+    //ManaPotion,
+    //StaminaPotion,
+    //BuffPotion
 }
 
 [Serializable]

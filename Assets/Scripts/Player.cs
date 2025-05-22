@@ -15,6 +15,8 @@ public class Player : MonoBehaviour
     public ItemData itemData; // 아이템 데이터
     public Action addItem; // 아이템 추가 액션
 
+    public Transform dropItemPosition; // 아이템 드랍 위치
+
     private void Awake()
     {
         CharacterManager.Instance.Player = this;
