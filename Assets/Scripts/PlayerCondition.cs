@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem.EnhancedTouch;
 
 public class PlayerCondition : MonoBehaviour
 {
@@ -32,9 +33,13 @@ public class PlayerCondition : MonoBehaviour
         //Debug.Log("Die");
     }
 
-    void heal(float amount)
+    public void heal(float amount)
     {
         hp.AddValue(amount);
         Debug.Log("Heal");
+    }
+    public void Eat(float amount)
+    {
+        hp.AddValue(amount);
     }
 }

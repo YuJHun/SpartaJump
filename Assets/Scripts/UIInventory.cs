@@ -199,5 +199,38 @@ public class UIInventory : MonoBehaviour
 
 
     }
+    public void OnUseButton()
+    {
+        if (selectedItem.itemType == itemType.Consumable)
+        {
+            for(int i =0; i < selectedItem.consumbales.Length; i++)
+            {
+                switch (selectedItem.consumbales[i].type)
+                {
+                    case ConsumableType.HP:
+                        condition.heal(selectedItem.consumbales[i].value);
+                        break;
+                }
+            }
+            RemoveSelectedItem();
+        }
+    }
+    public void OnDropButton()
+    {
+        ThrowItem(selectedItem);
+        RemoveSelectedItem();
+    }
+    void RemoveSelectedItem()
+    {
+        slots[selectedItemIndex].quantity--;
+        if (slots[selectedItemIndex].quantity <= 0)
+        {
+            selectedItem = null;
+            slots[selectedItemIndex].itemData = null;
+            selectedItemIndex = -1;
+            ClearSelectedItemWindow();
+        }
+        UpdateUI();
+    }
 }
 
