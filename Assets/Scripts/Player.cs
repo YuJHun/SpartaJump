@@ -9,7 +9,7 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     [Header("플레이어 컨트롤러")]
-    public PlayerControler playerControler;
+    public PlayerController playerController;
     public PlayerCondition condition;
 
     public ItemData itemData; // 아이템 데이터
@@ -18,7 +18,7 @@ public class Player : MonoBehaviour
     private void Awake()
     {
         CharacterManager.Instance.Player = this;
-        playerControler =GetComponent<PlayerControler>();
+        playerController =GetComponent<PlayerController>();
         condition = GetComponent<PlayerCondition>();
     }
 }

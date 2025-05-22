@@ -1,43 +1,46 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 
 
-public interface IInteractable // ÀÎÅÍÆäÀÌ½º Á¤ÀÇ
+public interface IInteractable // ì¸í„°í˜ì´ìŠ¤ ì •ì˜
 {
-    public string GetInteractPrompt();// »óÈ£ÀÛ¿ë ÇÁ·ÒÇÁÆ®¸¦ ¹İÈ¯ÇÏ´Â ¸Ş¼­µå
-    public void OnInteract();// »óÈ£ÀÛ¿ë ½Ã È£ÃâµÇ´Â ¸Ş¼­µå
+    public string GetInteractPrompt();// ìƒí˜¸ì‘ìš© í”„ë¡¬í”„íŠ¸ë¥¼ ë°˜í™˜í•˜ëŠ” ë©”ì„œë“œ
+    public void OnInteract();// ìƒí˜¸ì‘ìš© ì‹œ í˜¸ì¶œë˜ëŠ” ë©”ì„œë“œ
 }
 
 
 public class ItemObject : MonoBehaviour, IInteractable
 {
-    public ItemData itemData; // ¾ÆÀÌÅÛ µ¥ÀÌÅÍ
-    public string GetInteractPrompt() // »óÈ£ÀÛ¿ë ÇÁ·ÒÇÁÆ® ¹İÈ¯
+    public ItemData itemData; // ì•„ì´í…œ ë°ì´í„°
+    public string GetInteractPrompt() // ìƒí˜¸ì‘ìš© í”„ë¡¬í”„íŠ¸ ë°˜í™˜
     {
         string str = $"{itemData.itemName}\n{itemData.itemDescription}";
         return str;
     }
+    public bool destroyOnInteract = true; // âœ… ì—ë””í„°ì—ì„œ ì„¤ì • ê°€ëŠ¥í•˜ê²Œ!
     public void OnInteract()
     {
         CharacterManager.Instance.Player.itemData = itemData;
         CharacterManager.Instance.Player.addItem?.Invoke();
-        Destroy(gameObject); // ¾ÆÀÌÅÛ ¿ÀºêÁ§Æ® »èÁ¦
+        if (destroyOnInteract)
+        {
+            Destroy(gameObject); // ì•„ì´í…œë§Œ ì‚¬ë¼ì§€ê²Œ!
+        }
     }
-
 
 
 
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 }

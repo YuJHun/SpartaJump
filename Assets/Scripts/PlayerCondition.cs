@@ -21,7 +21,7 @@ public class PlayerCondition : MonoBehaviour
     {
         hp.SubValue(hp.passiveValue * Time.deltaTime);
 
-        Debug.Log("HP is "+ hp.curValue);
+        //Debug.Log("HP is "+ hp.curValue);
         if (hp.curValue == 0)
         {
             Die();
@@ -29,7 +29,7 @@ public class PlayerCondition : MonoBehaviour
     }
     void Die()
     {
-        Debug.Log("Die");
+        //Debug.Log("Die");
     }
 
     void heal(float amount)

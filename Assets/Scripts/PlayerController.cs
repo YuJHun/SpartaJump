@@ -1,9 +1,10 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerControler : MonoBehaviour
+public class PlayerController : MonoBehaviour
 {
     [Header("움직임")]
     public float moveSpeed = 5f;
@@ -16,12 +17,18 @@ public class PlayerControler : MonoBehaviour
     public Transform cameraContainer;//카메라의 부모 오브젝트
     public float minXLook;//x의 회전범위 최솟값
     public float maxXLook;//x의 회전범위 최댓값
-    private float camCurXRot =0f;//"카메라의 현재 X축 회전값"을 저장해두는 용도
+    private float camCurXRot = 0f;//"카메라의 현재 X축 회전값"을 저장해두는 용도
     public float lookSensitivity;//마우스 감도
     private Vector2 mouseDelta;//마우스의 움직임을 저장하는 용도
+    public bool canLook = true;//카메라를 회전할 수 있는지 여부를 저장하는 용도
 
-
+    public Action openInventory;//인벤토리 열기 액션
     private Rigidbody _rigidbody;
+
+
+
+
+
     private void FixedUpdate()
     {
         _rigidbody = GetComponent<Rigidbody>();
@@ -30,7 +37,10 @@ public class PlayerControler : MonoBehaviour
     }
     private void LateUpdate()
     {
-        CameraLook();//카메라 회전 함수 호출
+        if (canLook)
+        {
+            CameraLook();//카메라 회전 함수 호출
+        }
     }
 
 
@@ -64,7 +74,7 @@ public class PlayerControler : MonoBehaviour
     {
         Vector3 dir = (transform.forward * nowMovementInput.y)      //앞으로가고 뒤로가고 W S
                          + (transform.right * nowMovementInput.x);  //좌우로 가고 A D
-        dir *= moveSpeed* Time.deltaTime;                          //이동속도
+        dir *= moveSpeed * Time.deltaTime;                          //이동속도
         dir.y = _rigidbody.velocity.y;                              //y축은 Rigidbody의 y축 속도를 가져온다
         _rigidbody.velocity = dir;//이동속도를 Rigidbody에 넣어준다
     }
@@ -82,7 +92,7 @@ public class PlayerControler : MonoBehaviour
         transform.eulerAngles += new Vector3(0, mouseDelta.x * lookSensitivity, 0);//플레이어의 회전값을 조정한다
     }
     public void OnJump(InputAction.CallbackContext context)
-    { 
+    {
         //Debug.Log(IsGrounded());
         if (context.phase == InputActionPhase.Started && IsGrounded())
         {
@@ -108,6 +118,20 @@ public class PlayerControler : MonoBehaviour
         }
 
         return false;
+    }
+    public void OnInventory(InputAction.CallbackContext context)
+    {
+        if (context.phase == InputActionPhase.Started)
+        {
+            openInventory?.Invoke();
+            ToggleCursor();
+        }
+    }
+    void ToggleCursor()
+    {
+        bool toggle = Cursor.lockState == CursorLockMode.Locked;
+        Cursor.lockState = toggle ? CursorLockMode.None : CursorLockMode.Locked;
+        canLook = !toggle;
     }
 }
 

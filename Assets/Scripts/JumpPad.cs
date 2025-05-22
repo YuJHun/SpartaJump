@@ -1,27 +1,27 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 
 public class JumpPad : MonoBehaviour
 {
-    public float jumpForce = 10f; // Á¡ÇÁ Èû ¼³Á¤
+    public float jumpForce = 10f; // ì í”„ íž˜ ì„¤ì •
 
     private void OnTriggerEnter(Collider other)
-    //OnTriggerEnter = Unity¿¡¼­ Æ®¸®°Å ÄÝ¶óÀÌ´õ¿¡ ¾î¶² °´Ã¼°¡ ´ê¾ÒÀ» ¶§ ÀÚµ¿À¸·Î È£Ãâ
+    //OnTriggerEnter = Unityì—ì„œ íŠ¸ë¦¬ê±° ì½œë¼ì´ë”ì— ì–´ë–¤ ê°ì²´ê°€ ë‹¿ì•˜ì„ ë•Œ ìžë™ìœ¼ë¡œ í˜¸ì¶œ
     {
-        // Ä³¸¯ÅÍ¿¡ Rigidbody°¡ ÀÖÀ» °æ¿ì¿¡¸¸ ½ÇÇà
+        // ìºë¦­í„°ì— Rigidbodyê°€ ìžˆì„ ê²½ìš°ì—ë§Œ ì‹¤í–‰
         Rigidbody rb = other.GetComponent<Rigidbody>();
-        //Æ®¸®°Å¿¡ ´êÀº °´Ã¼(other)¿¡¼­ Rigidbody ÄÄÆ÷³ÍÆ®¸¦ °¡Á®¿É´Ï´Ù
+        //íŠ¸ë¦¬ê±°ì— ë‹¿ì€ ê°ì²´(other)ì—ì„œ Rigidbody ì»´í¬ë„ŒíŠ¸ë¥¼ ê°€ì ¸ì˜µë‹ˆë‹¤
         if (rb != null)
         {
             rb.velocity = new Vector3(rb.velocity.x, 0, rb.velocity.z);
-            // ¼öÁ÷ ¹æÇâÀ¸·Î ÈûÀ» °¡ÇÔ (YÃà ±âÁØ)
-            // ±âÁ¸ ¼öÁ÷ ¼Óµµ Á¦°Å
-            // ¼³¸í: RigidbodyÀÇ ±âÁ¸ ¼öÁ÷ ¼Óµµ(YÃà) ¸¦ 0À¸·Î ÃÊ±âÈ­ÇÕ´Ï´Ù.
-            //¼öÁ÷ ¼Óµµ°¡ ³²¾Æ ÀÖÀ¸¸é Á¡ÇÁ ÈûÀÌ ¿¹Ãø ºÒ°¡´ÉÇÏ°Ô ¼¯ÀÌ¹Ç·Î, ÀÌ ÁÙ·Î ±ú²ýÀÌ ÃÊ±âÈ­ÇÏ´Â °Å¿¹¿ä.
-            //¼öÆò ¼Óµµ(XZÃà)´Â ±×´ë·Î À¯ÁöÇÕ´Ï´Ù.
+            // ìˆ˜ì§ ë°©í–¥ìœ¼ë¡œ íž˜ì„ ê°€í•¨ (Yì¶• ê¸°ì¤€)
+            // ê¸°ì¡´ ìˆ˜ì§ ì†ë„ ì œê±°
+            // ì„¤ëª…: Rigidbodyì˜ ê¸°ì¡´ ìˆ˜ì§ ì†ë„(Yì¶•) ë¥¼ 0ìœ¼ë¡œ ì´ˆê¸°í™”í•©ë‹ˆë‹¤.
+            //ìˆ˜ì§ ì†ë„ê°€ ë‚¨ì•„ ìžˆìœ¼ë©´ ì í”„ íž˜ì´ ì˜ˆì¸¡ ë¶ˆê°€ëŠ¥í•˜ê²Œ ì„žì´ë¯€ë¡œ, ì´ ì¤„ë¡œ ê¹¨ë—ì´ ì´ˆê¸°í™”í•˜ëŠ” ê±°ì˜ˆìš”.
+            //ìˆ˜í‰ ì†ë„(XZì¶•)ëŠ” ê·¸ëŒ€ë¡œ ìœ ì§€í•©ë‹ˆë‹¤.
 
             rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
-            //¼³¸í: Rigidbody¿¡ À§ÂÊ ¹æÇâ(¡è YÃà) À¸·Î jumpForce¸¸Å­ÀÇ ÈûÀ» ÁÝ´Ï´Ù.
-            //ForceMode.Impulse´Â ¼ø°£ÀûÀÎ Å« ÈûÀ» ÁÖ´Â ¹æ½ÄÀÔ´Ï´Ù(Á¡ÇÁÇÒ ¶§ »ç¿ë ÀûÇÕ).
+            //ì„¤ëª…: Rigidbodyì— ìœ„ìª½ ë°©í–¥(â†‘ Yì¶•) ìœ¼ë¡œ jumpForceë§Œí¼ì˜ íž˜ì„ ì¤ë‹ˆë‹¤.
+            //ForceMode.ImpulseëŠ” ìˆœê°„ì ì¸ í° íž˜ì„ ì£¼ëŠ” ë°©ì‹ìž…ë‹ˆë‹¤(ì í”„í•  ë•Œ ì‚¬ìš© ì í•©).
         }
     }
 }
