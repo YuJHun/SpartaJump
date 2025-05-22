@@ -30,7 +30,7 @@ public class PlayerCondition : MonoBehaviour
     }
     void Die()
     {
-        //Debug.Log("Die");
+        Debug.Log("Die");
     }
 
     public void heal(float amount)
