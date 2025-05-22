@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -17,7 +15,6 @@ public class Interaction : MonoBehaviour
     public TextMeshProUGUI promptText;
     private Camera camera;
 
-    // Start is called before the first frame update
     void Start()
     {
         camera = Camera.main;
@@ -49,14 +46,12 @@ public class Interaction : MonoBehaviour
                 promptText.gameObject.SetActive(false);
             }
         }
-
-
     }
 
     private void SetPromptText()
     {
         promptText.gameObject.SetActive(true);
-        promptText.text = curInteractable.GetInteracPrompt();
+        promptText.text = curInteractable.GetInteractPrompt();
     }
 
     public void OnInteractInput(InputAction.CallbackContext context)
