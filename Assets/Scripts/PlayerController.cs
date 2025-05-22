@@ -1,36 +1,36 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class PlayerControler : MonoBehaviour
 {
-    [Header("¿òÁ÷ÀÓ")]
+    [Header("ì›€ì§ì„")]
     public float moveSpeed = 5f;
-    private Vector2 nowMovementInput;//inputAction¿¡¼­ ¹Ş¾Æ¿Â °ª
-    public float jumpPower = 5f;//Á¡ÇÁ Èû
-    public LayerMask groundLayerMask;//·¹ÀÌ¾î ¸¶½ºÅ©
+    private Vector2 nowMovementInput;//inputActionì—ì„œ ë°›ì•„ì˜¨ ê°’
+    public float jumpPower = 5f;//ì í”„ í˜
+    public LayerMask groundLayerMask;//ë ˆì´ì–´ ë§ˆìŠ¤í¬
 
 
-    [Header("º¸´Ù")]
-    public Transform cameraContainer;//Ä«¸Ş¶óÀÇ ºÎ¸ğ ¿ÀºêÁ§Æ®
-    public float minXLook;//xÀÇ È¸Àü¹üÀ§ ÃÖ¼Ú°ª
-    public float maxXLook;//xÀÇ È¸Àü¹üÀ§ ÃÖ´ñ°ª
-    private float camCurXRot =0f;//"Ä«¸Ş¶óÀÇ ÇöÀç XÃà È¸Àü°ª"À» ÀúÀåÇØµÎ´Â ¿ëµµ
-    public float lookSensitivity;//¸¶¿ì½º °¨µµ
-    private Vector2 mouseDelta;//¸¶¿ì½ºÀÇ ¿òÁ÷ÀÓÀ» ÀúÀåÇÏ´Â ¿ëµµ
+    [Header("ë³´ë‹¤")]
+    public Transform cameraContainer;//ì¹´ë©”ë¼ì˜ ë¶€ëª¨ ì˜¤ë¸Œì íŠ¸
+    public float minXLook;//xì˜ íšŒì „ë²”ìœ„ ìµœì†Ÿê°’
+    public float maxXLook;//xì˜ íšŒì „ë²”ìœ„ ìµœëŒ“ê°’
+    private float camCurXRot =0f;//"ì¹´ë©”ë¼ì˜ í˜„ì¬ Xì¶• íšŒì „ê°’"ì„ ì €ì¥í•´ë‘ëŠ” ìš©ë„
+    public float lookSensitivity;//ë§ˆìš°ìŠ¤ ê°ë„
+    private Vector2 mouseDelta;//ë§ˆìš°ìŠ¤ì˜ ì›€ì§ì„ì„ ì €ì¥í•˜ëŠ” ìš©ë„
 
 
     private Rigidbody _rigidbody;
     private void FixedUpdate()
     {
         _rigidbody = GetComponent<Rigidbody>();
-        //ÀÌ·± ½ÄÀ¸·Î °è¼Ó Rigidbody¸¦ ½á¾ß ÇÒ °æ¿ì,  GetComponent<Rigidbody>() ¸¦ ¸Å¹ø ºÎ¸£¸é ºñ¿ëÀÌ Å©°í ºñÈ¿À²ÀûÀÌ¾ß.
-        //·¡¼­ Awake()¿¡¼­ ÇÑ ¹ø¸¸ Ã£°í, º¯¼ö¿¡ ÀúÀåÇØµÎ´Â °ÅÁö!
+        //ì´ëŸ° ì‹ìœ¼ë¡œ ê³„ì† Rigidbodyë¥¼ ì¨ì•¼ í•  ê²½ìš°,  GetComponent<Rigidbody>() ë¥¼ ë§¤ë²ˆ ë¶€ë¥´ë©´ ë¹„ìš©ì´ í¬ê³  ë¹„íš¨ìœ¨ì ì´ì•¼.
+        //ë˜ì„œ Awake()ì—ì„œ í•œ ë²ˆë§Œ ì°¾ê³ , ë³€ìˆ˜ì— ì €ì¥í•´ë‘ëŠ” ê±°ì§€!
     }
     private void LateUpdate()
     {
-        CameraLook();//Ä«¸Ş¶ó È¸Àü ÇÔ¼ö È£Ãâ
+        CameraLook();//ì¹´ë©”ë¼ íšŒì „ í•¨ìˆ˜ í˜¸ì¶œ
     }
 
 
@@ -39,34 +39,34 @@ public class PlayerControler : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Cursor.lockState = CursorLockMode.Locked; //Ä¿¼­ ¾Èº¸ÀÌ°ÔµÊ
+        Cursor.lockState = CursorLockMode.Locked; //ì»¤ì„œ ì•ˆë³´ì´ê²Œë¨
     }
 
     // Update is called once per frame
     void Update()
     {
-        Move();//¿òÁ÷ÀÓ ÇÔ¼ö È£Ãâ
+        Move();//ì›€ì§ì„ í•¨ìˆ˜ í˜¸ì¶œ
     }
 
-    public void OnMove(InputAction.CallbackContext ÇöÀç»óÅÂ)
+    public void OnMove(InputAction.CallbackContext í˜„ì¬ìƒíƒœ)
     {
-        if (ÇöÀç»óÅÂ.phase == InputActionPhase.Performed)//phase ºĞ±âÁ¡
+        if (í˜„ì¬ìƒíƒœ.phase == InputActionPhase.Performed)//phase ë¶„ê¸°ì 
         {
-            nowMovementInput = ÇöÀç»óÅÂ.ReadValue<Vector2>();//°ªÀ» ÀĞ¾î¿Â´Ù
+            nowMovementInput = í˜„ì¬ìƒíƒœ.ReadValue<Vector2>();//ê°’ì„ ì½ì–´ì˜¨ë‹¤
 
         }
-        else if (ÇöÀç»óÅÂ.phase == InputActionPhase.Canceled)
+        else if (í˜„ì¬ìƒíƒœ.phase == InputActionPhase.Canceled)
         {
-            nowMovementInput = Vector2.zero;//°ªÀ» ÃÊ±âÈ­ÇÑ´Ù
+            nowMovementInput = Vector2.zero;//ê°’ì„ ì´ˆê¸°í™”í•œë‹¤
         }
     }
     void Move()
     {
-        Vector3 dir = (transform.forward * nowMovementInput.y)      //¾ÕÀ¸·Î°¡°í µÚ·Î°¡°í W S
-                         + (transform.right * nowMovementInput.x);  //ÁÂ¿ì·Î °¡°í A D
-        dir *= moveSpeed* Time.deltaTime;                          //ÀÌµ¿¼Óµµ
-        dir.y = _rigidbody.velocity.y;                              //yÃàÀº RigidbodyÀÇ yÃà ¼Óµµ¸¦ °¡Á®¿Â´Ù
-        _rigidbody.velocity = dir;//ÀÌµ¿¼Óµµ¸¦ Rigidbody¿¡ ³Ö¾îÁØ´Ù
+        Vector3 dir = (transform.forward * nowMovementInput.y)      //ì•ìœ¼ë¡œê°€ê³  ë’¤ë¡œê°€ê³  W S
+                         + (transform.right * nowMovementInput.x);  //ì¢Œìš°ë¡œ ê°€ê³  A D
+        dir *= moveSpeed* Time.deltaTime;                          //ì´ë™ì†ë„
+        dir.y = _rigidbody.velocity.y;                              //yì¶•ì€ Rigidbodyì˜ yì¶• ì†ë„ë¥¼ ê°€ì ¸ì˜¨ë‹¤
+        _rigidbody.velocity = dir;//ì´ë™ì†ë„ë¥¼ Rigidbodyì— ë„£ì–´ì¤€ë‹¤
     }
 
     public void OnLook(InputAction.CallbackContext context)
@@ -76,10 +76,10 @@ public class PlayerControler : MonoBehaviour
     void CameraLook()
     {
         camCurXRot += mouseDelta.y * lookSensitivity;
-        camCurXRot = Mathf.Clamp(camCurXRot, minXLook, maxXLook);//xÃà È¸Àü°ªÀ» Á¦ÇÑÇÑ´Ù
-        cameraContainer.localEulerAngles = new Vector3(-camCurXRot, 0, 0);//Ä«¸Ş¶óÀÇ È¸Àü°ªÀ» Á¶Á¤ÇÑ´Ù
+        camCurXRot = Mathf.Clamp(camCurXRot, minXLook, maxXLook);//xì¶• íšŒì „ê°’ì„ ì œí•œí•œë‹¤
+        cameraContainer.localEulerAngles = new Vector3(-camCurXRot, 0, 0);//ì¹´ë©”ë¼ì˜ íšŒì „ê°’ì„ ì¡°ì •í•œë‹¤
 
-        transform.eulerAngles += new Vector3(0, mouseDelta.x * lookSensitivity, 0);//ÇÃ·¹ÀÌ¾îÀÇ È¸Àü°ªÀ» Á¶Á¤ÇÑ´Ù
+        transform.eulerAngles += new Vector3(0, mouseDelta.x * lookSensitivity, 0);//í”Œë ˆì´ì–´ì˜ íšŒì „ê°’ì„ ì¡°ì •í•œë‹¤
     }
     public void OnJump(InputAction.CallbackContext context)
     { 

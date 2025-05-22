@@ -1,14 +1,14 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 
 public class CharacterManager : MonoBehaviour
 {
-    //½Ì±ÛÅæ ¸¸µé±â
+    //ì‹±ê¸€í†¤ ë§Œë“¤ê¸°
     private static CharacterManager _instance;
     public static CharacterManager Instance
     {
         get
         {
-            if (_instance == null)//ÀÎ½ºÅÏ½º°¡ ºñ¾î ÀÖ´õ¶óµµ
+            if (_instance == null)//ì¸ìŠ¤í„´ìŠ¤ê°€ ë¹„ì–´ ìˆë”ë¼ë„
             {
                 _instance = new GameObject("CharacterManager").AddComponent<CharacterManager>();
 
@@ -17,10 +17,10 @@ public class CharacterManager : MonoBehaviour
         }
     }
 
-    //ÇÊµå (Field)
-    public Player _player;//µ¥ÀÌÅÍ¸¦ ÀúÀåÇÏ´Â ½ÇÁ¦ º¯¼ö
-    //¼Ó¼º(Property) 
-    public Player Player//¿ÜºÎ¿¡¼­ Á¢±ÙÇÒ ¶§ Áß°£ Á¦¾î °¡´É
+    //í•„ë“œ (Field)
+    public Player _player;//ë°ì´í„°ë¥¼ ì €ì¥í•˜ëŠ” ì‹¤ì œ ë³€ìˆ˜
+    //ì†ì„±(Property) 
+    public Player Player//ì™¸ë¶€ì—ì„œ ì ‘ê·¼í•  ë•Œ ì¤‘ê°„ ì œì–´ ê°€ëŠ¥
     {
         get
         {
@@ -35,16 +35,16 @@ public class CharacterManager : MonoBehaviour
     private void Awake()
     {
         if (_instance == null)
-        //ÀÎ½ºÅÏ½º°¡ ºñ¾îÀÖÀ»¶§
+        //ì¸ìŠ¤í„´ìŠ¤ê°€ ë¹„ì–´ìˆì„ë•Œ
         {
-            //Awake¶ó´Â »ı¸íÁÖ±â ÇÔ¼ö°¡ È£ÃâÀÌ µÇ¾ú´Ù´Â°ÍÀº ÀÌ¹Ì °ÔÀÓ¿ÀºêÁ§Æ®·Î script¿¡ ºÙ¾îÀÖ´Â »óÅÂ¿¡¼­ ½ÇÇàÀÌ µÇ¾ú´Ù´Â°Í 
-            //±×·¡¼­ µû·Î GameObject¸¦ ¸¸µé ÇÊ¿ä°¡ ¾ø´Ù
+            //Awakeë¼ëŠ” ìƒëª…ì£¼ê¸° í•¨ìˆ˜ê°€ í˜¸ì¶œì´ ë˜ì—ˆë‹¤ëŠ”ê²ƒì€ ì´ë¯¸ ê²Œì„ì˜¤ë¸Œì íŠ¸ë¡œ scriptì— ë¶™ì–´ìˆëŠ” ìƒíƒœì—ì„œ ì‹¤í–‰ì´ ë˜ì—ˆë‹¤ëŠ”ê²ƒ 
+            //ê·¸ë˜ì„œ ë”°ë¡œ GameObjectë¥¼ ë§Œë“¤ í•„ìš”ê°€ ì—†ë‹¤
             _instance = this;
             DontDestroyOnLoad(this.gameObject);
         }
         else
         {
-            if (_instance != this)//±âÁ¸¿¡ÀÖ´Â ÀÎ½ºÅÏ½º¿Í ³» ÀÚ½ÅÀÌ ´Ù¸£¸é ÇöÀç°Å ÆÄ±«
+            if (_instance != this)//ê¸°ì¡´ì—ìˆëŠ” ì¸ìŠ¤í„´ìŠ¤ì™€ ë‚´ ìì‹ ì´ ë‹¤ë¥´ë©´ í˜„ì¬ê±° íŒŒê´´
             {
                 Destroy(gameObject);
             }

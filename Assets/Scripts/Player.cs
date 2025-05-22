@@ -1,15 +1,17 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-//PlayerController¶ó´øÁö ¾ÕÀ¸·Î ¸¸µé ±â´ÉµéÀ» ´ãÀ» ¿¹Á¤
+//PlayerControllerë¼ë˜ì§€ ì•ìœ¼ë¡œ ë§Œë“¤ ê¸°ëŠ¥ë“¤ì„ ë‹´ì„ ì˜ˆì •
 public class Player : MonoBehaviour
 {
-    [Header("ÇÃ·¹ÀÌ¾î ÄÁÆ®·Ñ·¯")]
+    [Header("í”Œë ˆì´ì–´ ì»¨íŠ¸ë¡¤ëŸ¬")]
     public PlayerControler playerControler;
+    public PlayerCondition condition;
 
     private void Awake()
     {
         CharacterManager.Instance.Player = this;
         playerControler =GetComponent<PlayerControler>();
+        condition = GetComponent<PlayerCondition>();
     }
 }
