@@ -36,6 +36,7 @@ public class ItemData : ScriptableObject
     public string itemName; // 아이템 이름
     public string itemDescription; // 아이템 설명
     public itemType itemType; // 아이템 종류
+    public Sprite itemIcon; // 아이템 아이콘
     public GameObject dropPrefab; // 아이템 드랍 프리팹
 
     [Header("Staking")]
