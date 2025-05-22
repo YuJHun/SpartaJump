@@ -21,6 +21,6 @@ MonoBehaviour:
   maxStack: 10
   consumbales:
   - type: 0
-    value: 50
+    value: 500
   - type: 1
     value: 1

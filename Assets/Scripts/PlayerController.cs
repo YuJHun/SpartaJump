@@ -50,15 +50,23 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked; //커서 안보이게됨
+        StartCoroutine(DelayedLog());
     }
 
     // Update is called once per frame
     void Update()
     {
         Move();//움직임 함수 호출
-        Debug.Log("현재 스피드: " + moveSpeed);
     }
+    private IEnumerator DelayedLog()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(2f); // 2초마다 실행
+            Debug.Log("현재 스피드: " + moveSpeed);
+        }
 
+    }
     public void OnMove(InputAction.CallbackContext context)
     {
         if (context.phase == InputActionPhase.Performed)//phase 분기점
