@@ -56,6 +56,7 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         Move();//움직임 함수 호출
+        Debug.Log("현재 스피드: " + moveSpeed);
     }
 
     public void OnMove(InputAction.CallbackContext context)
@@ -132,6 +133,47 @@ public class PlayerController : MonoBehaviour
         bool toggle = Cursor.lockState == CursorLockMode.Locked;
         Cursor.lockState = toggle ? CursorLockMode.None : CursorLockMode.Locked;
         canLook = !toggle;
+    }
+    public void BoostSpeed(float amount, float duration)
+    {
+        StartCoroutine(SpeedBoostRoutine(amount, duration));
+    }
+    private IEnumerator SpeedBoostRoutine(float amount, float duration)
+    {
+        moveSpeed *= amount;
+        Debug.Log("스피드 증가!");
+
+
+        //yield return new WaitForSeconds(duration);// (duration)초 대기
+        float timeLeft = duration;
+
+        while (timeLeft > 0)
+        {
+            Debug.Log("남은 시간: " + Mathf.CeilToInt(timeLeft) + "초");
+            yield return new WaitForSeconds(1f);// (duration)초 대기
+            timeLeft -= 1f;
+        }
+
+
+        moveSpeed /= amount;
+        Debug.Log("스피드 원래대로 복구됨!");
+    }
+    public void StartCountdown()
+    {
+        StartCoroutine(CountdownCoroutine(10));
+    }
+    private IEnumerator CountdownCoroutine(int seconds)
+    {
+        int timeLeft = seconds;
+
+        while (timeLeft > 0)
+        {
+            Debug.Log("남은 시간: " + timeLeft + "초");
+            yield return new WaitForSeconds(1f);
+            timeLeft--;
+        }
+
+        Debug.Log("카운트다운 완료!");
     }
 }
 

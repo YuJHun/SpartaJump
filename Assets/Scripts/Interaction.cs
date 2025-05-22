@@ -23,8 +23,8 @@ public class Interaction : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log("curInteractable: " + curInteractable);
-        Debug.Log("promptText: " + promptText);
+        //Debug.Log("curInteractable: " + curInteractable);
+        //Debug.Log("promptText: " + promptText);
         if (Time.time - lastCheckTime > checkRate)
         {
             lastCheckTime = Time.time;

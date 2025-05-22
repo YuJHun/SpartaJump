@@ -64,7 +64,6 @@ public class UIInventory : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
     }
     // 선택한 아이템 표시할 정보창 Clear 함수
     void ClearSelectedItemWindow()
@@ -209,6 +208,10 @@ public class UIInventory : MonoBehaviour
                 {
                     case ConsumableType.HP:
                         condition.heal(selectedItem.consumbales[i].value);
+                        break;
+                    case ConsumableType.SpeedUP:
+                        // 10초간 버프 지속 예시
+                        CharacterManager.Instance.Player.playerController.BoostSpeed(selectedItem.consumbales[i].value, 10f);
                         break;
                 }
             }

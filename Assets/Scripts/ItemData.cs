@@ -16,6 +16,7 @@ public enum ConsumableType // 소비 아이템 종류를 정의하는 열거형
 {
     HP,
     MP,
+    SpeedUP,
     //HealthPotion,
     //ManaPotion,
     //StaminaPotion,
