@@ -21,3 +21,6 @@
 약 사용 후 콘솔 출력
 ![Image](https://github.com/user-attachments/assets/db684327-1e29-42e2-9aa2-1fbee0905544)
 아이템 습득 후 인벤토리 / 중복습득시 카운트 증가
+
+![Image](https://github.com/user-attachments/assets/87c7716d-afd0-4ade-85b8-6940877dbd60)
+습득 키 안내 추가
