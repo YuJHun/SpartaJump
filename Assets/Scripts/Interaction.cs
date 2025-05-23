@@ -4,16 +4,16 @@ using UnityEngine.InputSystem;
 
 public class Interaction : MonoBehaviour
 {
-    public float checkRate = 0.05f;//몇 초마다 한 번만 Ray를 쏠지 정하는 값
-    private float lastCheckTime;//마지막으로 Ray를 쏜 시간
-    public float maxCheckDistance;
-    public LayerMask layerMask;
+    public float checkRate = 0.05f;//검사주기-몇 초마다 한 번만 Ray를 쏠지 정하는 값
+    private float lastCheckTime;//마지막검사시간-마지막으로 Ray를 쏜 시간
+    public float maxCheckDistance;//최대검사거리
+    public LayerMask layerMask;//대상레이어
 
-    public GameObject curInteractGameObject;
-    private IInteractable curInteractable;
+    public GameObject curInteractGameObject;//현재대상오브젝트
+    private IInteractable curInteractable;//현재상호작용가능
 
-    public TextMeshProUGUI promptText;
-    private Camera camera;
+    public TextMeshProUGUI promptText;//상호작용문구
+    private Camera camera;//메인카메라
 
     void Start()
     {

@@ -6,8 +6,8 @@ using UnityEngine;
 
 public interface IInteractable // 인터페이스 정의
 {
-    public string GetInteractPrompt();// 상호작용 프롬프트를 반환하는 메서드
-    public void OnInteract();// 상호작용 시 호출되는 메서드
+    public string GetInteractPrompt();// 상호작용 프롬프트를 반환하는 메서드 예: "E 키를 눌러 열기"
+    public void OnInteract();// 상호작용 시 호출되는 메서드 (예: 문 열기)
 }
 
 

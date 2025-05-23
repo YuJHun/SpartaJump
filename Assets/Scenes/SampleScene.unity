@@ -5015,7 +5015,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -15.799988}
+  m_AnchoredPosition: {x: 0, y: -15.800049}
   m_SizeDelta: {x: 1500, y: 30}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &2142745703
@@ -5204,13 +5204,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1594733518762997505, guid: 6989df18654f4c34fbe4a8395f0c86fb, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1638875321432788824, guid: 6989df18654f4c34fbe4a8395f0c86fb, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.576
       objectReference: {fileID: 0}
     - target: {fileID: 1638875321432788824, guid: 6989df18654f4c34fbe4a8395f0c86fb, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.5
       objectReference: {fileID: 0}
     - target: {fileID: 1638875321432788824, guid: 6989df18654f4c34fbe4a8395f0c86fb, type: 3}
       propertyPath: m_LocalPosition.z
@@ -5248,6 +5252,14 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 3638826528807482367, guid: 6989df18654f4c34fbe4a8395f0c86fb, type: 3}
+      propertyPath: m_UseGravity
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3638826528807482367, guid: 6989df18654f4c34fbe4a8395f0c86fb, type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7867083217725501562, guid: 6989df18654f4c34fbe4a8395f0c86fb, type: 3}
       propertyPath: m_Name
       value: JumpPad
@@ -5257,7 +5269,8 @@ PrefabInstance:
       value: 9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 1914733494474419921, guid: 6989df18654f4c34fbe4a8395f0c86fb, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 7867083217725501562, guid: 6989df18654f4c34fbe4a8395f0c86fb, type: 3}
