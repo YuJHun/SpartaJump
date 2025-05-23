@@ -8,7 +8,7 @@
 ![Image](https://github.com/user-attachments/assets/47cb7b14-d4e6-4327-8537-dae7c1605de6)
 도핑약 아이템 구현
 ![Image](https://github.com/user-attachments/assets/1e4d3eb2-87c1-4dbe-99ea-e47da9070540)
-도핑약 인벤토리 UI
+도핑약 인벤토리[Tab키] UI
 ![Image](https://github.com/user-attachments/assets/7d737ca4-4e05-4dbd-becc-12b77a197918)
 
 현재 속도 콘솔 출력
