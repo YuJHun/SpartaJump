@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem.EnhancedTouch;
@@ -36,7 +36,8 @@ public class PlayerCondition : MonoBehaviour
     public void heal(float amount)
     {
         hp.AddValue(amount);
-        Debug.Log("Heal");
+        Debug.Log($"HP가 {amount}회복 되었습니다");
+        Debug.Log("HP가 회복 되었습니다");
     }
     public void Eat(float amount)
     {

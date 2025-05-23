@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 941e39dd4abefd544af15b61ecb483b3, type: 3}
   m_Name: Item_Weapon
   m_EditorClassIdentifier: 
-  itemName: "\uBB34\uAE30\uC785\uB2C8\uB2E4"
+  itemName: "\uBB34\uAE30\uC785\uB2C8\uB2E4 [\uC2B5\uB4DD : E]"
   itemDescription: "\uC77C\uB2E8\uC740 \uBB34\uAE30\uC785\uB2C8\uB2E4"
   itemType: 0
   itemIcon: {fileID: 21300000, guid: d4904b0a48b93094b9a253a35e263568, type: 3}

@@ -198,7 +198,7 @@ public class UIInventory : MonoBehaviour
 
 
     }
-    public void OnUseButton()
+    public void OnUseButton()//아이템사용버튼
     {
         if (selectedItem.itemType == itemType.Consumable)
         {
@@ -206,7 +206,7 @@ public class UIInventory : MonoBehaviour
             {
                 switch (selectedItem.consumbales[i].type)
                 {
-                    case ConsumableType.HP:
+                    case ConsumableType.HP://체력회복
                         condition.heal(selectedItem.consumbales[i].value);
                         break;
                     case ConsumableType.SpeedUP:
