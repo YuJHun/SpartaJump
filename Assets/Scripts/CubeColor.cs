@@ -1,14 +1,14 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class CubeColor : MonoBehaviour
 {
-    public Color newColor = Color.red; // ¹Ù²Ù°í ½ÍÀº »ö ÁöÁ¤ (ÀÎ½ºÆåÅÍ¿¡¼­ º¯°æ °¡´É)
+    public Color newColor = Color.red; // ë°”ê¾¸ê³  ì‹¶ì€ ìƒ‰ ì§€ì • (ì¸ìŠ¤í™í„°ì—ì„œ ë³€ê²½ ê°€ëŠ¥)
     // Start is called before the first frame update
     void Start()
     {
-        // ÇöÀç Å¥ºêÀÇ Renderer¿¡¼­ Material °¡Á®¿Í¼­ »ö º¯°æ
+        // í˜„ì¬ íë¸Œì˜ Rendererì—ì„œ Material ê°€ì ¸ì™€ì„œ ìƒ‰ ë³€ê²½
         GetComponent<Renderer>().material.color = newColor;
     }
 

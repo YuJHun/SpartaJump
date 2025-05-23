@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -12,19 +12,19 @@ public class UIInventory : MonoBehaviour
 
     public GameObject inventoryWindow;
 
-    [Header("Selected Item")]           // ¼±ÅÃÇÑ ½½·ÔÀÇ ¾ÆÀÌÅÛ Á¤º¸ Ç¥½Ã À§ÇÑ UI
+    [Header("Selected Item")]           // ì„ íƒí•œ ìŠ¬ë¡¯ì˜ ì•„ì´í…œ ì •ë³´ í‘œì‹œ ìœ„í•œ UI
     public Transform slotPanel;
-    public Transform dropPosition;      // item ¹ö¸± ¶§ ÇÊ¿äÇÑ À§Ä¡
+    public Transform dropPosition;      // item ë²„ë¦´ ë•Œ í•„ìš”í•œ ìœ„ì¹˜
 
 
 
 
-    [Header("¾ÆÀÌÅÛ Á¤º¸")]
+    [Header("ì•„ì´í…œ ì •ë³´")]
     public TextMeshProUGUI selectedItemName;
     public TextMeshProUGUI selectedItemDescription;
     public TextMeshProUGUI selectedItemStatName;
     public TextMeshProUGUI selectedItemStatValue;
-    [Header("¹öÆ°")]
+    [Header("ë²„íŠ¼")]
     public GameObject useButton;
     public GameObject equipButton;
     public GameObject unEquipButton;
@@ -44,10 +44,10 @@ public class UIInventory : MonoBehaviour
         condition = CharacterManager.Instance.Player.condition;
         dropPosition = CharacterManager.Instance.Player.dropItemPosition;
 
-        controller.openInventory += Toggle; // ÀÎº¥Åä¸® ¿­±â ¾×¼Ç µî·Ï
+        controller.openInventory += Toggle; // ì¸ë²¤í† ë¦¬ ì—´ê¸° ì•¡ì…˜ ë“±ë¡
 
-        CharacterManager.Instance.Player.addItem += AddItem;  // ¾ÆÀÌÅÛ ÆÄ¹Ö ½Ã
-        // Inventory UI ÃÊ±âÈ­ ·ÎÁ÷µé
+        CharacterManager.Instance.Player.addItem += AddItem;  // ì•„ì´í…œ íŒŒë° ì‹œ
+        // Inventory UI ì´ˆê¸°í™” ë¡œì§ë“¤
         inventoryWindow.SetActive(false);
         slots = new ItemSlot[slotPanel.childCount];
 
@@ -65,7 +65,7 @@ public class UIInventory : MonoBehaviour
     void Update()
     {
     }
-    // ¼±ÅÃÇÑ ¾ÆÀÌÅÛ Ç¥½ÃÇÒ Á¤º¸Ã¢ Clear ÇÔ¼ö
+    // ì„ íƒí•œ ì•„ì´í…œ í‘œì‹œí•  ì •ë³´ì°½ Clear í•¨ìˆ˜
     void ClearSelectedItemWindow()
     {
         //selectedItem = null;
@@ -80,7 +80,7 @@ public class UIInventory : MonoBehaviour
         unEquipButton.SetActive(false);
         dropButton.SetActive(false);
     }
-    // Inventory Ã¢ Open/Close ½Ã È£Ãâ
+    // Inventory ì°½ Open/Close ì‹œ í˜¸ì¶œ
     public void Toggle()
     {
         if (IsOpen())
@@ -111,10 +111,10 @@ public class UIInventory : MonoBehaviour
                 return;
             }
         }
-        // ºó ½½·Ô Ã£±â
+        // ë¹ˆ ìŠ¬ë¡¯ ì°¾ê¸°
         ItemSlot emptySlot = GetEmptySlot();
 
-        // ºó ½½·ÔÀÌ ÀÖ´Ù¸é
+        // ë¹ˆ ìŠ¬ë¡¯ì´ ìˆë‹¤ë©´
         if (emptySlot != null)
         {
             emptySlot.itemData = data;
@@ -124,11 +124,11 @@ public class UIInventory : MonoBehaviour
             return;
         }
 
-        // ºó ½½·Ô ¸¶Àú ¾øÀ» ¶§
+        // ë¹ˆ ìŠ¬ë¡¯ ë§ˆì € ì—†ì„ ë•Œ
         ThrowItem(data);
         CharacterManager.Instance.Player.itemData = null;
     }
-    // ¿©·¯°³ °¡Áú ¼ö ÀÖ´Â ¾ÆÀÌÅÛÀÇ Á¤º¸ Ã£¾Æ¼­ return
+    // ì—¬ëŸ¬ê°œ ê°€ì§ˆ ìˆ˜ ìˆëŠ” ì•„ì´í…œì˜ ì •ë³´ ì°¾ì•„ì„œ return
     ItemSlot GetItemStack(ItemData data)
     {
         for (int i = 0; i < slots.Length; i++)
@@ -140,12 +140,12 @@ public class UIInventory : MonoBehaviour
         }
         return null;
     }
-    // UI Á¤º¸ »õ·Î°íÄ§
+    // UI ì •ë³´ ìƒˆë¡œê³ ì¹¨
     public void UpdateUI()
     {
         for (int i = 0; i < slots.Length; i++)
         {
-            // ½½·Ô¿¡ ¾ÆÀÌÅÛ Á¤º¸°¡ ÀÖ´Ù¸é
+            // ìŠ¬ë¡¯ì— ì•„ì´í…œ ì •ë³´ê°€ ìˆë‹¤ë©´
             if (slots[i].itemData != null)
             {
                 slots[i].SetItem();
@@ -156,7 +156,7 @@ public class UIInventory : MonoBehaviour
             }
         }
     }
-    // ½½·ÔÀÇ item Á¤º¸°¡ ºñ¾îÀÖ´Â Á¤º¸ return
+    // ìŠ¬ë¡¯ì˜ item ì •ë³´ê°€ ë¹„ì–´ìˆëŠ” ì •ë³´ return
     ItemSlot GetEmptySlot()
     {
         for (int i = 0; i < slots.Length; i++)
@@ -168,7 +168,7 @@ public class UIInventory : MonoBehaviour
         }
         return null;
     }
-    // ¾ÆÀÌÅÛ ¹ö¸®±â (½ÇÁ¦·Ğ ¸Å°³º¯¼ö·Î µé¾î¿Â µ¥ÀÌÅÍ¿¡ ÇØ´çÇÏ´Â ¾ÆÀÌÅÛ »ı¼º)
+    // ì•„ì´í…œ ë²„ë¦¬ê¸° (ì‹¤ì œë¡  ë§¤ê°œë³€ìˆ˜ë¡œ ë“¤ì–´ì˜¨ ë°ì´í„°ì— í•´ë‹¹í•˜ëŠ” ì•„ì´í…œ ìƒì„±)
     public void ThrowItem(ItemData data)
     {
         Instantiate(data.dropPrefab, dropPosition.position, Quaternion.Euler(Vector3.one * Random.value * 360));
@@ -210,7 +210,7 @@ public class UIInventory : MonoBehaviour
                         condition.heal(selectedItem.consumbales[i].value);
                         break;
                     case ConsumableType.SpeedUP:
-                        // 10ÃÊ°£ ¹öÇÁ Áö¼Ó ¿¹½Ã
+                        // 10ì´ˆê°„ ë²„í”„ ì§€ì† ì˜ˆì‹œ
                         CharacterManager.Instance.Player.playerController.BoostSpeed(selectedItem.consumbales[i].value, 10f);
                         break;
                 }

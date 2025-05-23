@@ -1,10 +1,10 @@
-using System;
+ï»¿using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public enum itemType // ¾ÆÀÌÅÛ Á¾·ù¸¦ Á¤ÀÇÇÏ´Â ¿­°ÅÇü
+public enum itemType // ì•„ì´í…œ ì¢…ë¥˜ë¥¼ ì •ì˜í•˜ëŠ” ì—´ê±°í˜•
 {
     Equipable,
     Consumable,
@@ -12,7 +12,7 @@ public enum itemType // ¾ÆÀÌÅÛ Á¾·ù¸¦ Á¤ÀÇÇÏ´Â ¿­°ÅÇü
     QuestItem
 }
 
-public enum ConsumableType // ¼Òºñ ¾ÆÀÌÅÛ Á¾·ù¸¦ Á¤ÀÇÇÏ´Â ¿­°ÅÇü
+public enum ConsumableType // ì†Œë¹„ ì•„ì´í…œ ì¢…ë¥˜ë¥¼ ì •ì˜í•˜ëŠ” ì—´ê±°í˜•
 {
     HP,
     MP,
@@ -27,27 +27,27 @@ public enum ConsumableType // ¼Òºñ ¾ÆÀÌÅÛ Á¾·ù¸¦ Á¤ÀÇÇÏ´Â ¿­°ÅÇü
 public class ItemDataConsumbale
 {
     public ConsumableType type;
-    public float value; // ¼Òºñ ¾ÆÀÌÅÛÀÇ È¿°ú¸¦ ³ªÅ¸³»´Â °ª
+    public float value; // ì†Œë¹„ ì•„ì´í…œì˜ íš¨ê³¼ë¥¼ ë‚˜íƒ€ë‚´ëŠ” ê°’
 }
 
 [CreateAssetMenu(fileName = "Item", menuName = "New Item")]
-//ScriptableObject Å¬·¡½º À§¿¡ ºÙÀÌ¸é, Unity Project Ã¢¿¡¼­ ¿ìÅ¬¸¯ ¡æ Create ¸Ş´º¿¡ »õ Ç×¸ñÀÌ »ı°Ü¿ä
+//ScriptableObject í´ë˜ìŠ¤ ìœ„ì— ë¶™ì´ë©´, Unity Project ì°½ì—ì„œ ìš°í´ë¦­ â†’ Create ë©”ë‰´ì— ìƒˆ í•­ëª©ì´ ìƒê²¨ìš”
 public class ItemData : ScriptableObject
-//ScriptableObject = Unity¿¡¼­ µ¥ÀÌÅÍ¸¦ ÀúÀåÇÏ°í Àç»ç¿ëÇÏ±â À§ÇÑ °¡º±°í È¿À²ÀûÀÎ µ¥ÀÌÅÍ ÄÁÅ×ÀÌ³Ê Å¬·¡½º
+//ScriptableObject = Unityì—ì„œ ë°ì´í„°ë¥¼ ì €ì¥í•˜ê³  ì¬ì‚¬ìš©í•˜ê¸° ìœ„í•œ ê°€ë³ê³  íš¨ìœ¨ì ì¸ ë°ì´í„° ì»¨í…Œì´ë„ˆ í´ë˜ìŠ¤
 {
     [Header("Info")]
-    public string itemName; // ¾ÆÀÌÅÛ ÀÌ¸§
-    public string itemDescription; // ¾ÆÀÌÅÛ ¼³¸í
-    public itemType itemType; // ¾ÆÀÌÅÛ Á¾·ù
-    public Sprite itemIcon; // ¾ÆÀÌÅÛ ¾ÆÀÌÄÜ
-    public GameObject dropPrefab; // ¾ÆÀÌÅÛ µå¶ø ÇÁ¸®ÆÕ
+    public string itemName; // ì•„ì´í…œ ì´ë¦„
+    public string itemDescription; // ì•„ì´í…œ ì„¤ëª…
+    public itemType itemType; // ì•„ì´í…œ ì¢…ë¥˜
+    public Sprite itemIcon; // ì•„ì´í…œ ì•„ì´ì½˜
+    public GameObject dropPrefab; // ì•„ì´í…œ ë“œë í”„ë¦¬íŒ¹
 
     [Header("Staking")]
-    public bool canStack; // ½ºÅÃ °¡´É ¿©ºÎ
-    public int maxStack; // ÃÖ´ë ½ºÅÃ ¼ö
+    public bool canStack; // ìŠ¤íƒ ê°€ëŠ¥ ì—¬ë¶€
+    public int maxStack; // ìµœëŒ€ ìŠ¤íƒ ìˆ˜
 
     [Header("Consumable")]
-    public ItemDataConsumbale[] consumbales; // ¼Òºñ ¾ÆÀÌÅÛÀÇ È¿°ú¸¦ ³ªÅ¸³»´Â ¹è¿­
+    public ItemDataConsumbale[] consumbales; // ì†Œë¹„ ì•„ì´í…œì˜ íš¨ê³¼ë¥¼ ë‚˜íƒ€ë‚´ëŠ” ë°°ì—´
 
     // Start is called before the first frame update
     void Start()

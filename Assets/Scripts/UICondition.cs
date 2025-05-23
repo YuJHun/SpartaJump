@@ -1,11 +1,11 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class UICondition : MonoBehaviour
 {
-    public Condition hp; // Condition ½ºÅ©¸³Æ®ÀÇ ÀÎ½ºÅÏ½º
-    public Condition mp; // Condition ½ºÅ©¸³Æ®ÀÇ ÀÎ½ºÅÏ½º
+    public Condition hp; // Condition ìŠ¤í¬ë¦½íŠ¸ì˜ ì¸ìŠ¤í„´ìŠ¤
+    public Condition mp; // Condition ìŠ¤í¬ë¦½íŠ¸ì˜ ì¸ìŠ¤í„´ìŠ¤
 
 
 
